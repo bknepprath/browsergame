@@ -3,14 +3,12 @@
         <link rel="stylesheet" type="text/css" href="interface.css" />
         <script type="text/javascript" src="main.js"></script>
     </head>
-    
     <body>
         <div id="title">
             <h1>Glorious Rods 4</h1>
         </div>
 		
 		<div id="pickupnetbutton">
-			<!--<button type="button" onclick="reset()">Hard Reset</button><br /><br />-->
 			<button type="button" onclick="pickUpNet()">Pick Up Net</button><br /><br />
 		</div>
 		<div id="pickuphammerbutton">
@@ -24,7 +22,7 @@
 		</div>
 		
         <div class="cardstaples" id="cardNet">
-			<div class="cardtypes" onClick="startNetFish()">
+			<div class="cardtypes" id="cardNetTitle" onClick="startNetFish()">
 				<h2>Net</h2>
 			</div>
 			<div class="variableneeds">
@@ -44,7 +42,7 @@
         </div>
 		
 		<div class="cardstaples" id="cardRod">
-			<div class="cardtypes" onClick="startRodFish()">
+			<div class="cardtypes" id="cardRodTitle" onClick="startRodFish()">
 				<h2>Rod</h2>
 			</div>
 			<div class="variableneeds">
@@ -55,7 +53,7 @@
         </div>
 		
 		<div class="cardstaples" id="cardShip">
-			<div class="cardtypes" onClick="startShipFish()">
+			<div class="cardtypes" id="cardShipTitle" onClick="startShipFish()">
 				<h2>Ship</h2>
 			</div>
 			<div class="variableneeds">
@@ -71,7 +69,7 @@
 		<!-- construction -->
 		<div id="constructioncontainer"><br />
 			<div class="cardstaples" id="cardHouse">
-				<div class="cardtypes" onClick="startBuild()">
+				<div class="cardtypes" id="cardHouseTitle" onClick="startBuild()">
 					<h2>Build</h2>
 				</div>
 				<div class="variableneeds">

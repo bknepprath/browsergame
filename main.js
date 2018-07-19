@@ -2,9 +2,9 @@
 var currentlybuilding = 0;
 var currentlyfishing = 0;
 
-//unlock variables
-var netunlocked = 0;
-var hammerunlocked = 0;
+//unlock variables. Start at 0, invisible. 1 is visible. Once unlocked and utilized, set to 2.
+var netvisible = 1;
+var hammervisible = 0;
 
 //item variables
 var fishxp = 0;
@@ -19,17 +19,33 @@ var sharks = 0;
 var seaturtles = 0;
 var houses = 0;
 
-function pickUpNet(){
-	cardNet.style.display = "inline-block";
-	pickupnetbutton.style.display = "none";
+//This function will be called whenever something needs to appear or disappear
+function controlVisible(){
+	if(netvisible == 1){
+		pickupnetbutton.style.display = "block";
+	}
+	else{
+		pickupnetbutton.style.display = "none";
+	}
+	if(hammervisible == 1){
+		pickuphammerbutton.style.display = "block";
+	}
+	else{
+		pickuphammerbutton.style.display = "none";
+	}
 }
 
-//why does this button reappear?
-//this reappears because of the way made the hammer button unlock. I need a new system entirely for unlocking content.
+///two functions for unlocking content blocks
+function pickUpNet(){
+	netvisible = 2;
+	cardNet.style.display = "inline-block";
+	controlVisible();
+}
 function pickUpHammer(){
+	hammervisible = 2;
 	constructioncontainer.style.display = "block";
 	cardHouse.style.display = "inline-block";
-	pickuphammerbutton.style.display = "none";
+	controlVisible();
 }
 
 function unlockContent(){
@@ -60,8 +76,9 @@ function unlockContent(){
 	if(seaturtles>0){
 		seaturtlesholder.style.display = "inline-block";
 	}
-	if(fishlvl>14){
-		pickuphammerbutton.style.display = "inline-block";
+	if(fishlvl>14 && hammervisible === 0){
+		hammervisible = 1;
+		controlVisible();
 	}
 	if(houses>0){
 		housesholder.style.display = "inline-block";
@@ -76,19 +93,46 @@ function updateFishlvl(){
 	document.getElementById("fishlvl").innerHTML = fishlvl;
 }
 
+//This function will keep active idlers highlighted
+//How do I make this smaller? I did this in skills idle, too
+//I tried making the class of "cardstyles" update to white, then only change the necessary one to yellow. But they don't update to yellow - maybe class supersedes id?? 
+function highlight(){
+	if(currentlyfishing == 1){
+		cardNetTitle.style.background = "yellow";
+		cardRodTitle.style.background = "white";
+		cardShipTitle.style.background = "white";
+	}
+	if(currentlyfishing == 2){
+		cardNetTitle.style.background = "white";
+		cardRodTitle.style.background = "yellow";
+		cardShipTitle.style.background = "white";
+	}
+	if(currentlyfishing == 3){
+		cardNetTitle.style.background = "white";
+		cardRodTitle.style.background = "white";
+		cardShipTitle.style.background = "yellow";
+	}
+	if(currentlybuilding == 1){
+		cardHouseTitle.style.background = "yellow";
+	}
+}
+
 function startNetFish(){
 	currentlyfishing = 1;
 	updateFishlvl();
+	highlight();
 }
 
 function startRodFish(){
 	currentlyfishing = 2;
 	updateFishlvl();
+	highlight();
 }
 
 function startShipFish(){
 	currentlyfishing = 3;
 	updateFishlvl();
+	highlight();
 }
 
 function fishShrimp(){
@@ -155,6 +199,7 @@ function fishSeaturtles(){
 
 function startBuild(){
 	currentlybuilding = 1;
+	highlight();
 }
 
 function build(){

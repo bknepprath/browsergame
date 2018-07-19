@@ -62,18 +62,6 @@ div.variableneeds {
 .cardtypes:hover {
 	background: yellow;
 }
-#cardNet:hover {
-	background: lightblue;
-}
-#cardRod:hover {
-	background: pink;
-}
-#cardShip:hover {
-	background: lightgreen;
-}
-#cardHouse:hover {
-	background: lightgray;
-}
 
 #shrimps:hover {
 	background: yellow;
