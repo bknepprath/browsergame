@@ -1,0 +1,85 @@
+<HTML>
+    <head>
+        <link rel="stylesheet" type="text/css" href="interface.css" />
+        <script type="text/javascript" src="main.js"></script>
+    </head>
+    
+    <body>
+        <div id="title">
+            <h1>Glorious Rods 4</h1>
+        </div>
+		
+		<div id="pickupnetbutton">
+			<!--<button type="button" onclick="reset()">Hard Reset</button><br /><br />-->
+			<button type="button" onclick="pickUpNet()">Pick Up Net</button><br /><br />
+		</div>
+		<div id="pickuphammerbutton">
+			<button type="button" onclick="pickUpHammer()">Pick Up Hammer</button><br /><br />
+		</div>
+		
+		<div>
+			Fishing Level: <span id="fishlvl">1</span><br />
+			Fishing XP: <span id="fishxp">0</span><br /><br />
+			Fish Coins: <span id="fishcoins">0</span><br /><br />
+		</div>
+		
+        <div class="cardstaples" id="cardNet">
+			<div class="cardtypes" onClick="startNetFish()">
+				<h2>Net</h2>
+			</div>
+			<div class="variableneeds">
+				<div id="shrimpsholder">
+					Shrimps: <span id="shrimps" onClick="gut()">0</span><br />
+				</div>
+				<div id="anchoviesholder">
+					Anchovies: <span id="anchovies">0</span><br />
+				</div>
+				<div id="bassholder">
+					Bass: <span id="bass">0</span><br />
+				</div>
+				<div id="luckybassholder">
+					Lucky Bass: <span id="luckybass">0</span>
+				</div>
+			</div>
+        </div>
+		
+		<div class="cardstaples" id="cardRod">
+			<div class="cardtypes" onClick="startRodFish()">
+				<h2>Rod</h2>
+			</div>
+			<div class="variableneeds">
+				<div id="mackerelsholder">
+					Mackerel: <span id="mackerels">0</span><br />
+				</div>
+			</div>
+        </div>
+		
+		<div class="cardstaples" id="cardShip">
+			<div class="cardtypes" onClick="startShipFish()">
+				<h2>Ship</h2>
+			</div>
+			<div class="variableneeds">
+				<div id="sharksholder">
+					Sharks: <span id="sharks">0</span><br />
+				</div>
+				<div id="seaturtlesholder">
+					Sea Turtles: <span id="seaturtles">0</span><br />
+				</div>
+			</div>
+        </div>
+		
+		<!-- construction -->
+		<div id="constructioncontainer"><br />
+			<div class="cardstaples" id="cardHouse">
+				<div class="cardtypes" onClick="startBuild()">
+					<h2>Build</h2>
+				</div>
+				<div class="variableneeds">
+					<div id="housesholder">
+						House: <span id="houses">0</span><br />
+					</div>
+				</div>
+			</div>
+		</div>
+    </body>
+</HTML>

@@ -1,0 +1,80 @@
+:root {
+	font-family: monospace;
+	font-size: 18px;
+	text-align: center;
+}
+	
+#title {
+	font-size: 24px;
+}	
+
+div.cardstaples {
+	position: relative;
+	vertical-align: top;
+	display: inline-block;
+	width: 200px;
+	border: 1px black;
+	border-style: solid;
+	margin: 10px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	display: none;
+}
+div.cardtypes {
+	border: 1px black;
+	border-style: solid;
+	margin: 10px;
+}
+div.variableneeds {
+	margin: 10px;
+}
+
+#shrimpsholder{
+	display: none;
+}
+#anchoviesholder{
+	display: none;
+}
+#bassholder{
+	display: none;
+}
+#luckybassholder{
+	display: none;
+}
+#mackerelsholder{
+	display: none;
+}
+#sharksholder{
+	display: none;
+}
+#seaturtlesholder{
+	display: none;
+}
+#constructioncontainer{
+	display: none;
+}
+#pickuphammerbutton{
+	display: none;
+}
+#housesholder{
+	display: none;
+}
+
+.cardtypes:hover {
+	background: yellow;
+}
+#cardNet:hover {
+	background: lightblue;
+}
+#cardRod:hover {
+	background: pink;
+}
+#cardShip:hover {
+	background: lightgreen;
+}
+#cardHouse:hover {
+	background: lightgray;
+}
+
+#shrimps:hover {
+	background: yellow;
+}
