@@ -15,8 +15,12 @@ var anchovies = 0;
 var bass = 0;
 var luckybass = 0;
 var mackerels = 0;
+var tuna = 0;
+var swordfish = 0;
 var sharks = 0;
 var seaturtles = 0;
+var octopuses = 0;
+var mantarays = 0;
 var houses = 0;
 
 //This function will be called whenever something needs to appear or disappear
@@ -68,14 +72,29 @@ function unlockContent(){
 	if(mackerels>0){
 		mackerelsholder.style.display = "inline-block";
 	}
-	if(fishlvl>79){
-		cardShip.style.display = "inline-block";
+	if(fishlvl>29){
+		cardHarpoon.style.display = "inline-block";
+	}
+	if(tuna>0){
+		tunaholder.style.display = "inline-block";
+	}
+	if(swordfish>0){
+		swordfishholder.style.display = "inline-block";
 	}
 	if(sharks>0){
 		sharksholder.style.display = "inline-block";
 	}
+	if(fishlvl>99){
+		cardShip.style.display = "inline-block";
+	}
 	if(seaturtles>0){
 		seaturtlesholder.style.display = "inline-block";
+	}
+	if(octopuses>0){
+		octopusesholder.style.display = "inline-block";
+	}
+	if(mantarays>0){
+		mantaraysholder.style.display = "inline-block";
 	}
 	if(fishlvl>14 && hammervisible === 0){
 		hammervisible = 1;
@@ -102,16 +121,25 @@ function highlight(){
 	if(currentlyfishing == 1){
 		cardNetTitle.style.background = "yellow";
 		cardRodTitle.style.background = "white";
+		cardHarpoonTitle.style.background = "white";
 		cardShipTitle.style.background = "white";
 	}
 	if(currentlyfishing == 2){
 		cardNetTitle.style.background = "white";
 		cardRodTitle.style.background = "yellow";
+		cardHarpoonTitle.style.background = "white";
+		cardShipTitle.style.background = "white";
+	}
+	if(currentlyfishing == 3){
+		cardNetTitle.style.background = "white";
+		cardRodTitle.style.background = "white";
+		cardHarpoonTitle.style.background = "yellow";
 		cardShipTitle.style.background = "white";
 	}
 	if(currentlyfishing == 4){
 		cardNetTitle.style.background = "white";
 		cardRodTitle.style.background = "white";
+		cardHarpoonTitle.style.background = "white";
 		cardShipTitle.style.background = "yellow";
 	}
 	if(currentlybuilding == 1){
@@ -127,6 +155,11 @@ function startNetFish(){
 }
 function startRodFish(){
 	currentlyfishing = 2;
+	updateFishlvl();
+	highlight();
+}
+function startHarpoonFish(){
+	currentlyfishing = 3;
 	updateFishlvl();
 	highlight();
 }
@@ -190,6 +223,30 @@ function fishMackerel(){
 		updateFishlvl();
 	}
 }
+function fishTuna(){
+	if(fishlvl>29){
+		if((Math.random()*100)>80){
+			catchvar = 1;
+			fishxp = fishxp + catchvar*70;
+			tuna += catchvar;
+			document.getElementById("tuna").innerHTML = tuna;
+			document.getElementById("fishxp").innerHTML = fishxp;
+			updateFishlvl();
+		}
+	}
+}
+function fishSwordfish(){
+	if(fishlvl>49){
+		if((Math.random()*100)>80){
+			catchvar = 1;
+			fishxp = fishxp + catchvar*90;
+			swordfish += catchvar;
+			document.getElementById("swordfish").innerHTML = swordfish;
+			document.getElementById("fishxp").innerHTML = fishxp;
+			updateFishlvl();
+		}
+	}
+}
 function fishShark(){
 	if(fishlvl>79){
 		if((Math.random()*100)>80){
@@ -209,6 +266,30 @@ function fishSeaturtles(){
 			fishxp = fishxp + catchvar*1000;
 			seaturtles += catchvar;
 			document.getElementById("seaturtles").innerHTML = seaturtles;
+			document.getElementById("fishxp").innerHTML = fishxp;
+			updateFishlvl();
+		}
+	}
+}
+function fishOctopuses(){
+	if(fishlvl>119){
+		if((Math.random()*100)>80){
+			catchvar = 8;
+			fishxp = fishxp + catchvar*(3000/8);
+			octopuses += catchvar;
+			document.getElementById("octopuses").innerHTML = octopuses;
+			document.getElementById("fishxp").innerHTML = fishxp;
+			updateFishlvl();
+		}
+	}
+}
+function fishMantarays(){
+	if(fishlvl>139){
+		if((Math.random()*100)>80){
+			catchvar = 1;
+			fishxp = fishxp + catchvar*5000;
+			mantarays += catchvar;
+			document.getElementById("mantarays").innerHTML = mantarays;
 			document.getElementById("fishxp").innerHTML = fishxp;
 			updateFishlvl();
 		}
@@ -238,9 +319,15 @@ window.setInterval(function(){
 	if(currentlyfishing == 2){
 		fishMackerel();
 	}
-	if(currentlyfishing == 4){
+	if(currentlyfishing == 3){
+		fishTuna();
+		fishSwordfish();
 		fishShark();
-		fishSeaturtles();	
+	}
+	if(currentlyfishing == 4){
+		fishSeaturtles();
+		fishOctopuses();
+		fishMantarays();
 	}
 	if(currentlybuilding == 1){
 		build();
