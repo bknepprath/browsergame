@@ -42,10 +42,22 @@ div.variableneeds {
 #mackerelsholder{
 	display: none;
 }
+#tunaholder{
+	display: none;
+}
+#swordfishholder{
+	display: none;
+}
 #sharksholder{
 	display: none;
 }
 #seaturtlesholder{
+	display: none;
+}
+#octopusesholder{
+	display: none;
+}
+#mantaraysholder{
 	display: none;
 }
 #constructioncontainer{
